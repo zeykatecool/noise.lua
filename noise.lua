@@ -67,8 +67,6 @@ function noise:generateColorNoise(width, height, filename)
 end
 
 function noise:generateImage(width,height,color,filename)
-    color = color:gsub("#","")
-    color = {tonumber("0x"..color:sub(1,2)), tonumber("0x"..color:sub(3,4)), tonumber("0x"..color:sub(5,6)), 255}
     if not filename then
         filename = os.time()..".png"
     end
