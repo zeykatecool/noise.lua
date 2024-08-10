@@ -4,7 +4,7 @@ local noise = require("noise")
 noise:generatePng(256, 256, "empty.png") -- Creates a blank image
 
 --Width:int,Height:int,Color:table,Filename:string
-noise:generateImage(256, 256,{255, 0, 0,255}, "whiteImage.png") -- Creates an image filled with #FFFFFF (HEX color)
+noise:generateImage(256, 256,{255, 0, 0,255}, "whiteImage.png") -- Creates an image filled with rgba(255,0,0,255)
 
 --Width:int,Height:int,Filename:string
 noise:generateColorNoise(256, 256, "colorNoise.png") -- Creates an image filled with random colors
