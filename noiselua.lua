@@ -1,6 +1,19 @@
 local noise = {}
-local pngEncoder = require("pngencoder")
-local perlin = require("perlin")
+local pngEncoder = require("modules.pngencoder")
+local perlin = require("modules.perlin")
+
+local function mathRandom()
+    local h = os.time()
+    local s = os.clock()
+    if s <= 0 then
+        s = math.random(0, 11111111)
+    end
+    local mic = s * 1000000
+    local c = h * mic
+    return c % math.random(0, 2147483647)
+end
+
+math.randomseed(mathRandom())
 local function paintPixel(png, tbl, bgcolor)
     local w, h = png.width, png.height
     local backgroundColor = bgcolor or {0, 0, 0, 0}
@@ -41,7 +54,7 @@ function noise:generateWhiteNoise(width, height, filename)
     local pixels = {}
     for x = 0, width - 1 do
         for y = 0, height - 1 do
-            local value = math.random(0, 255) 
+            local value = math.random(0, 255)
             table.insert(pixels, {x = x, y = y, color = {value, value, value, 255}})
         end
     end
