@@ -135,14 +135,21 @@ end
 
 function noise:generateNoiseFromPalette(width, height, palette, filename)
     if not filename then
-        filename = os.time()..".png" 
+        filename = os.time()..".png"
     end
     width = width or 256
     height = height or 256
+
+    local n = #palette
+     for i = n, 2, -1 do
+            local j = math.random(i)
+            palette[i], palette[j] = palette[j], palette[i]
+    end
     local pixels = {}
     for x = 0, width - 1 do
         for y = 0, height - 1 do
-            local color = palette[math.random(1, #palette)]
+            local randomIndex = math.random(1, n)
+            local color = palette[randomIndex]
             table.insert(pixels, {x = x, y = y, color = color})
         end
     end
