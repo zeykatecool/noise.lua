@@ -110,6 +110,7 @@ function noise:randomizePerlinNoise()
     perlin:randomize()
 end
 function noise:generatePerlinNoise(width, height, scale,frequency, amplitude, filename)
+    noise:randomizePerlinNoise()
     if not filename then
         filename = os.time()..".png"
     end
@@ -139,12 +140,16 @@ function noise:generateNoiseFromPalette(width, height, palette, filename)
     end
     width = width or 256
     height = height or 256
-
     local n = #palette
-     for i = n, 2, -1 do
+local function shuffle()
+    for i = n, 2, -1 do
             local j = math.random(i)
             palette[i], palette[j] = palette[j], palette[i]
     end
+end
+for i = 1, math.random(0,10) do
+    shuffle()
+end
     local pixels = {}
     for x = 0, width - 1 do
         for y = 0, height - 1 do
