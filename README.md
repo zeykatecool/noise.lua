@@ -1,8 +1,11 @@
 # noise.lua
 - Noise generator for LuaJIT and Lua.
-- You can directly install this project with using `git`.
+- You can directly install this project with using `git` or with `luarocks`.
 ```ps
 git clone https://github.com/zeykatecool/noise.lua.git
+```
+```ps
+luarocks install noise
 ```
 
 # How To Use
