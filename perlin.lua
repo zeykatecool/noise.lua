@@ -1,6 +1,6 @@
 local perlin = {}
 perlin.p = {}
-local bit32 = require("bit")
+local bit32 = require("bit32")
 
 local permutation = {}
 
