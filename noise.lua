@@ -1,6 +1,6 @@
 local noise = {}
-local pngEncoder = require("modules.pngencoder")
-local perlin = require("modules.perlin")
+local pngEncoder = require("pngencoder")
+local perlin = require("perlin")
 
 local function mathRandom()
     local h = os.time()
